@@ -1,12 +1,34 @@
-<h1>テストコード</h1>
+<div class="d-flex align-items-center">
+  <h1>掲示板一覧</h1>
+  <div class="ml-auto boards__linkBox">
+    <%=link_to "新規作成", boards_path, class: "btn btn-outline-success" %>
+  </div>
+</div>
 
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button>
+<table class="table table-hover boards__table">
+  <thead class="thead-light">
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>作成者</th>
+      <th>作成日時</th>
+      <th>更新日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <th>TEST</th>
+      <th>TEST</th>
+      <th>TEST</th>
+      <th>TEST</th>
+    </tr>
+    <tr>
+      <th>1</th>
+      <th>TEST</th>
+      <th>TEST</th>
+      <th>TEST</th>
+      <th>TEST</th>
+    </tr>
+  </tbody>
+</table>

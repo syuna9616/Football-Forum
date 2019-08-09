@@ -48,7 +48,6 @@ if Rails.env.development?
       'wrapper_open'              => nil,
       'wrapper_close'             => nil,
       'with_comment'              => 'true'
-      'skip_on_db_migrate'   => "true",
     )
   end
 

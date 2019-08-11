@@ -4,8 +4,26 @@
   }
 }
 
-.boards__linkbox{
-  a{
-    margin: 0 8px;
-  }
+.boards__linkBox{
+  margin: 30px 8px;
+}
+
+// 掲示板画面
+.card-header{
+h3{
+  margin: 15px 0;
+}
+h6{
+  font-size: 0.7rem;
+}
+a{
+  float: right;
+}}
+
+.card-body p{
+  margin: 0 0;
+}
+
+.card-footer p{
+  margin: 0 0;
 }

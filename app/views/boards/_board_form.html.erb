@@ -1,7 +1,9 @@
 <div class="card">
 
   <div class="card-header">
-    <%=link_to "編集", "/", class: "btn btn-outline-success" %>
+    <%=link_to "削除", board_path, class: "btn btn-outline-danger", method: :delete, data: {confirm: "本当に掲示板を削除しますか？"} %>
+    <%=link_to "編集", edit_board_path, class: "btn btn-outline-success" %>
+
     <h3><%= @board.title %></h3>
     <h6 class="text-muted">作成日時：<%=@board.created_at.to_s(:datetime_jp)%></h6>
   </div>

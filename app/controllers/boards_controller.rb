@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :find_board_from_id, only: [:show, :edit, :update, :destroy]
+
   def index
     @boards = Board.all
   end
@@ -17,15 +19,12 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
   end
 
   def edit
-    @board = Board.find(params[:id])
   end
 
   def update
-    @board = Board.find(params[:id])
     if @board.update(board_params)
       redirect_to board_path, flash: {notice: "掲示板「#{@board.title}」を編集しました"}
     else
@@ -34,7 +33,6 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board = Board.find(params[:id])
     @board.destroy
     redirect_to boards_path, flash: {notice: "掲示板「#{@board.title}」を削除しました"}
   end
@@ -42,5 +40,9 @@ class BoardsController < ApplicationController
   private
   def board_params
     params.require(:board).permit(:name, :title, :body)
+  end
+
+  def find_board_from_id
+    @board = Board.find(params[:id])
   end
 end

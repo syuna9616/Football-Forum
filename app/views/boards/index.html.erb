@@ -4,11 +4,7 @@
     <%=link_to "新規作成", new_board_path, class: "btn btn-outline-primary" %>
   </div>
 </div>
-<% if flash[:notice] %>
-  <div class="alert alert-success" role="alert">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<%= render "flash" %>
 <table class="table table-hover boards__table">
   <thead class="thead-light">
     <tr>

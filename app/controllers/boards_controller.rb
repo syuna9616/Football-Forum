@@ -14,7 +14,7 @@ class BoardsController < ApplicationController
     if board.save
       redirect_to boards_path, flash: {notice: "掲示板「#{board.title}」を作成しました"}
     else
-      redirect_back(fallback_location: new_board_path, flash: {notice: "掲示板の作成に失敗しました"})
+      redirect_back fallback_location: new_board_path, flash: {alert: board.errors.full_messages}
     end
   end
 
@@ -28,7 +28,7 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       redirect_to board_path, flash: {notice: "掲示板「#{@board.title}」を編集しました"}
     else
-      redirect_back(fallback_location: edit_board_path, flash: {notice: "掲示板の編集に失敗しました"})
+      redirect_back(fallback_location: edit_board_path, flash: {alert: @board.errors.full_messages})
     end
   end
 

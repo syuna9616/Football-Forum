@@ -14,7 +14,6 @@ class BoardsController < ApplicationController
     if board.save
       redirect_to boards_path, flash: {notice: "掲示板「#{board.title}」を作成しました"}
     else
-      @errors_messages = board.errors.full_messages
       redirect_back fallback_location: new_board_path, flash: {alert: board.errors.full_messages}
     end
   end

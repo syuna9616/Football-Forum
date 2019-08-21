@@ -8,6 +8,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to board_path, flash: {notice: "コメントを削除しました"}
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:board_id, :name, :comment)

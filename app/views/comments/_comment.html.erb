@@ -1,10 +1,10 @@
 <div class="p-comment__item">
-
   <p><%= simple_format(comment.comment) %></p>
   <div class="p-comment__bottomLine">
     <span>ID:<%= comment.id %></span>
     <span><%= comment.name %></span>
     <span><%= comment.created_at.to_s(:datetime_jp) %></span>
+    <span><%=link_to "削除", comment_path, class: "btn btn-outline-danger", method: :delete, data: {confirm: "本当に掲示板を削除しますか？"} %></span>
 
   </div>
 </div>

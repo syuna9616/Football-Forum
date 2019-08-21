@@ -1,0 +1,15 @@
+class CommentsController < ApplicationController
+  def create
+    comment = Comment.new(comment_params)
+    if comment.save
+      redirect_to comment.board
+    else
+      redirect_back fallback_location: comment.board, flash: {alert: comment.errors.full_messages}
+    end
+  end
+
+  private
+  def comment_params
+    params.require(:comment).permit(:board_id, :name, :comment)
+  end
+end

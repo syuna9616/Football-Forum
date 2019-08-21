@@ -14,12 +14,12 @@ class BoardsController < ApplicationController
     if board.save
       redirect_to boards_path, flash: {notice: "掲示板「#{board.title}」を作成しました"}
     else
-      @errors_messages = board.errors.full_messages
       redirect_back fallback_location: new_board_path, flash: {alert: board.errors.full_messages}
     end
   end
 
   def show
+    @comment = Comment.new(board_id: @board.id)
   end
 
   def edit
@@ -29,7 +29,7 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       redirect_to board_path, flash: {notice: "掲示板「#{@board.title}」を編集しました"}
     else
-      redirect_back(fallback_location: edit_board_path, flash: {alert: @board.errors.full_messages})
+      redirect_back fallback_location: edit_board_path, flash: {alert: @board.errors.full_messages}
     end
   end
 

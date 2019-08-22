@@ -11,7 +11,7 @@
 #
 
 class Board < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :delete_all
   has_many :board_category_relations
   has_many :categories, through: :board_category_relations
 

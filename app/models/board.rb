@@ -18,4 +18,5 @@ class Board < ApplicationRecord
   validates :name, presence: true, length: { maximum: 8 }
   validates :title, presence: true, length: { maximum: 20 }
   validates :body, presence: true, length: { maximum: 1000 }
+  validates :category_ids, presence: true
 end

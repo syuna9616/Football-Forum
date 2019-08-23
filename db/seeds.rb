@@ -6,6 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-30.times do |n|
-  Board.create(name: "ユーザー#{n}", title: "タイトル#{n}", body: "本文#{n}")
+if Rails.env == "development"
+  Category.create([
+    { name: "Jリーグ" },
+    { name: "ラ・リーガ" },
+    { name: "プレミアリーグ" },
+    { name: "ブンデスリーガ" },
+    { name: "セリエA" },
+    { name: "代表サッカー" }
+  ])
+
+  (1..50).each do |n|
+    Board.create(name: "ユーザー#{n}", title: "タイトル#{n}", body: "本文#{n}", category_ids: rand(1..6))
+  end
 end

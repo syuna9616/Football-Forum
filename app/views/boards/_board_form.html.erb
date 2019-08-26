@@ -6,9 +6,8 @@
 
     <h3><%= @board.title %></h3>
     <h6 class="text-muted">作成日時：<%=@board.created_at.to_s(:datetime_jp)%></h6>
-    <% board.categories.each do |category| %>
-      <span class="badge badge-primary"><%= category.name %></span>
-    <% end %>
+    <span class="badge badge-primary"><%= board.category.name %></span>
+      
   </div>
 
   <div class="card-body">

@@ -16,7 +16,7 @@
 
   <div class="form-group">
     <span>カテゴリー</span>
-    <%= f.select :category_ids, Category.all.map { |category| [category.name, category.id] }, {include_blank: 'カテゴリーを選択してください'}, class:"form-control"  %>
+    <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] }, {include_blank: 'カテゴリーを選択してください'}, class:"form-control"  %>
   </div>
 
   <%= f.submit "投稿", class: "btn btn-success" %>

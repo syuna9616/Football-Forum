@@ -16,14 +16,7 @@
 
   <div class="form-group">
     <span>カテゴリー</span>
-    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-      <div class="form-check">
-        <%= category.label class: "form-check-label" do %>
-          <%= category.check_box class: "form-check-input" %>
-          <%= category.text %>
-        <% end %>
-      </div>
-    <% end %>
+    <%= f.select :category_ids, Category.all.map { |category| [category.name, category.id] }, {include_blank: 'カテゴリーを選択してください'}, class:"form-control"  %>
   </div>
 
   <%= f.submit "投稿", class: "btn btn-success" %>

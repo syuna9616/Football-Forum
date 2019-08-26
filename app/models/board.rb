@@ -2,21 +2,29 @@
 #
 # Table name: boards
 #
-#  id         :bigint           not null, primary key
-#  name       :string(255)      not null
-#  title      :string(255)      not null
-#  body       :text(65535)      not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  body        :text(65535)      not null
+#  name        :string(255)      not null
+#  title       :string(255)      not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :bigint
+#
+# Indexes
+#
+#  index_boards_on_category_id  (category_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (category_id => categories.id)
 #
 
 class Board < ApplicationRecord
   has_many :comments, dependent: :delete_all
-  has_many :board_category_relations
-  has_many :categories, through: :board_category_relations
+  belongs_to :category
 
   validates :name, presence: true, length: { maximum: 8 }
   validates :title, presence: true, length: { maximum: 20 }
   validates :body, presence: true, length: { maximum: 1000 }
-  validates :category_ids, presence: true
+  validates :category_id, presence: true
 end

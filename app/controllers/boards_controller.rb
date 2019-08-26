@@ -3,6 +3,7 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.page(params[:page])
+
   end
 
   def new
@@ -40,7 +41,7 @@ class BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:name, :title, :body, :category_ids)
+    params.require(:board).permit(:name, :title, :body, :category_id)
   end
 
   def find_board_from_id

@@ -2,8 +2,11 @@ class BoardsController < ApplicationController
   before_action :find_board_from_id, only: [:show, :edit, :update, :destroy]
 
   def index
-    @boards = Board.page(params[:page])
-
+    if params[:category_id]
+      @boards = Board.where(category_id: params[:category_id]).page(params[:page])
+    else
+      @boards = Board.page(params[:page])
+    end
   end
 
   def new

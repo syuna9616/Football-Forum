@@ -19,7 +19,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/boards">マイページ</a>
           <a class="dropdown-item" href="/boards">ログイン</a>
-          <a class="dropdown-item" href="/boards">ログアウト</a>
+          <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% end %>
         </div><!-- ./dropdown-menu -->
       </li>
     </ul>

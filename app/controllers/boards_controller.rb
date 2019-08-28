@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :find_board_from_id, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     if params[:category_id]

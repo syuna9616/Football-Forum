@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  index_boards_on_category_id  (category_id)
+#  fk_rails_865beff4dd  (category_id)
 #
 # Foreign Keys
 #

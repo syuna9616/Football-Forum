@@ -31,6 +31,16 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :letter_opener_web
 
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "footballforum111@gmail.com",
+    :password => "UaN3Ey+`",
+    :authentication => 'login'
+}
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
@@ -64,4 +74,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.reload_classes_only_on_change = false
+
+
 end

@@ -18,17 +18,34 @@
         <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">メニュー</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/boards">マイページ</a>
-          <a class="dropdown-item" href="/boards">ログイン</a>
-          <% if user_signed_in? %>
+          <% if current_user == nil %>
+            <%= link_to "ログイン", new_user_session_path, method: :get, class: "dropdown-item" %>
+          <% elsif user_signed_in? %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% end %>
         </div><!-- ./dropdown-menu -->
       </li>
     </ul>
+    <% if current_user %>
+    <div>あなたのメールアドレス:<%= current_user.email %></div>
+    <% end %>
     <div class="collapse navbar-collapse" id="navbarForm">
     <form class="form-inline my-2 my-lg-0 ml-auto">
-      <input class="form-control mr-sm-2" type="text" placeholder="検索..." aria-label="検索...">
-      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
+      <div class="header_linkbox">
+        <%= form_with url: boards_path, method: :get, class: "boards__searchForm" do %>
+          <%= select_tag :category_id,
+                         options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
+                         {
+                           prompt: 'カテゴリーで絞り込み',
+                           class: "form-control boards__select",
+                           onchange: "submit(this.form);"
+                         }
+          %>
+        <% end %>
+      </div>
+      <div class="header_linkbox">
+        <%=link_to "新規作成", new_board_path, class: "btn btn-outline-primary" %>
+      </div>
     </form>
   </div>
   </div><!-- /.navbar-collapse -->

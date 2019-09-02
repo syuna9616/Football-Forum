@@ -31,7 +31,7 @@ class BoardsController < ApplicationController
   end
 
   def update
-    if @board.update(board_params, user_id: current_user.id)
+    if @board.update(board_params)
       redirect_to board_path, flash: {notice: "掲示板「#{@board.title}」を編集しました"}
     else
       redirect_back fallback_location: edit_board_path, flash: {alert: @board.errors.full_messages}

@@ -22,6 +22,7 @@
             <%= link_to "ログイン", new_user_session_path, method: :get, class: "dropdown-item" %>
           <% elsif user_signed_in? %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "ユーザーを編集", edit_user_registration_path, method: :get, class: "dropdown-item" %>
           <% end %>
         </div><!-- ./dropdown-menu -->
       </li>
@@ -36,7 +37,6 @@
           <%= select_tag :category_id,
                          options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
                          {
-                           prompt: 'カテゴリーで絞り込み',
                            class: "form-control boards__select",
                            onchange: "submit(this.form);"
                          }

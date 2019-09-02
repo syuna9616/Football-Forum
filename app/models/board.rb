@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :bigint
+#  user_id     :integer          not null
 #
 # Indexes
 #
@@ -22,6 +23,7 @@
 class Board < ApplicationRecord
   has_many :comments, dependent: :delete_all
   belongs_to :category
+  belongs_to :user, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 8 }
   validates :title, presence: true, length: { maximum: 20 }

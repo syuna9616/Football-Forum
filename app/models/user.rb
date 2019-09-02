@@ -24,6 +24,8 @@
 #
 
 class User < ApplicationRecord
+  has_many :boards, dependent: :delete_all
+
   validates :user_name, presence: true, length: { maximum: 10 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

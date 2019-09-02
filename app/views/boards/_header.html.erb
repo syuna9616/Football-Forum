@@ -37,6 +37,7 @@
           <%= select_tag :category_id,
                          options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
                          {
+                           prompt: "カテゴリーで絞り込み",
                            class: "form-control boards__select",
                            onchange: "submit(this.form);"
                          }

@@ -31,7 +31,7 @@ class BoardsController < ApplicationController
   end
 
   def update
-    if @board.update(board_params)
+    if @board.update(board_params, user_id: current_user.id)
       redirect_to board_path, flash: {notice: "掲示板「#{@board.title}」を編集しました"}
     else
       redirect_back fallback_location: edit_board_path, flash: {alert: @board.errors.full_messages}
@@ -45,7 +45,7 @@ class BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:name, :title, :body, :category_id)
+    params.require(:board).permit(:name, :title, :body, :category_id, :user_id)
   end
 
   def find_board_from_id

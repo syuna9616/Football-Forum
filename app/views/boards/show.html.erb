@@ -1,6 +1,8 @@
 <%= render partial: "boards/flash" %>
 <%= render partial: "boards/board_form", locals: {board: @board} %>
+<% if current_user %>
 <%= render partial: "comments/comment_form", locals: {comment: @comment }%>
+<% end %>
 
 <div class="p-comment__list">
   <div class="p-comment__listTitle">コメント</div>

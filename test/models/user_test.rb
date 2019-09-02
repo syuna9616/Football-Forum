@@ -12,6 +12,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
 #  unconfirmed_email      :string(255)
+#  user_name              :string(255)      not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

@@ -43,6 +43,9 @@ class BoardsController < ApplicationController
     redirect_to boards_path, flash: {notice: "掲示板「#{@board.title}」を削除しました"}
   end
 
+  def mypage
+  end
+
   private
   def board_params
     params.require(:board).permit(:name, :title, :body, :category_id, :user_id)

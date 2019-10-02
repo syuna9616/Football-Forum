@@ -25,6 +25,8 @@
 #
 
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
+  
   has_many :boards, dependent: :delete_all
 
   validates :user_name, presence: true, length: { maximum: 10 }
@@ -32,6 +34,4 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-
-  mount_uploader :image, ImageUploader
 end

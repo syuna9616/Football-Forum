@@ -5,6 +5,7 @@
       <th>ID</th>
       <th>タイトル</th>
       <th>作成者</th>
+      <th></th>
       <th>作成日時</th>
       <th>カテゴリー</th>
       <th></th>
@@ -17,6 +18,9 @@
         <td><%=board.id%></td>
         <td><%=board.title%></td>
         <td><%=board.name%></td>
+        <td><div class="user-image-index">
+          <%= image_tag("#{User.find(board.user_id).image}")%>
+        </div></td>
         <td><%=board.created_at.to_s(:datetime_jp)%></td>
         <td><%=board.category.name %></td>
         <td><%=link_to "詳細", board, class: "btn btn-outline-success" %></td>

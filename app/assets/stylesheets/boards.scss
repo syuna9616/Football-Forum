@@ -2,6 +2,10 @@
   tr:hover{
     cursor: pointer;
   }
+  td {
+    text-align: center;
+    vertical-align: middle;
+  }
 }
 
 .boards__linkBox{
@@ -34,8 +38,13 @@ a{
   margin: 0 0;
 }
 
+.card-footer{
+  height: 70px;
+}
+
 .card-footer p{
-  margin: 0 0;
+  margin: 10px 0;
+  float: left;
 }
 
 .user{
@@ -43,25 +52,64 @@ a{
   height: 80px;
 }
 
-.user-image{
+.user-image-mypage{
   width: 50px;
   height: 50px;
   padding: 15px 70px;
   float: left;
-  height: auto;
 }
-.user-name{
+
+.user-image-mypage img{
+  width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.user-name-mypage{
   height: 80px;
   padding: 25px 20px;
 }
 
-.user-name h3{
+.user-name-mypage h3{
   margin: 0;
 }
 
-.user-image img{
+.user-image-index {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.user-image-index img{
+  width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.user-image-show {
+  width: 50px;
+  height: 50px;
+  float: right;
+}
+
+.user-image-show img{
   width: 50px;
 	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.user-image-header {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+.user-image-header img{
+  width: 40px;
+	height: 40px;
 	object-fit: cover;
 	border-radius: 50%;
 }

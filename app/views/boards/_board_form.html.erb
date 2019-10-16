@@ -7,7 +7,7 @@
     <h3><%= @board.title %></h3>
     <h6 class="text-muted">作成日時：<%=@board.created_at.to_s(:datetime_jp)%></h6>
     <span class="badge badge-primary"><%= board.category.name %></span>
-      
+
   </div>
 
   <div class="card-body">
@@ -16,6 +16,9 @@
 
   <div class="card-footer text-muted">
     <p>作成者：<%= @board.name %></p>
+    <div class="user-image-show">
+      <%= image_tag("#{User.find(board.user_id).image}")%>
+    </div>
   </div>
 
 </div>

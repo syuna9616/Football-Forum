@@ -37,3 +37,31 @@ a{
 .card-footer p{
   margin: 0 0;
 }
+
+.user{
+  position: relative;
+  height: 80px;
+}
+
+.user-image{
+  width: 50px;
+  height: 50px;
+  padding: 15px 70px;
+  float: left;
+  height: auto;
+}
+.user-name{
+  height: 80px;
+  padding: 25px 20px;
+}
+
+.user-name h3{
+  margin: 0;
+}
+
+.user-image img{
+  width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}

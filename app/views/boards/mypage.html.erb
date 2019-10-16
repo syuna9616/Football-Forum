@@ -1,4 +1,8 @@
-<div clsss="user_image">
-  <%= image_tag("#{current_user.image.thumb.url}")%>
+<div class="user">
+  <div class="user-image">
+    <%= image_tag("#{current_user.image}")%>
+  </div>
+  <div class="user-name">
+    <h3><%= current_user.user_name %></h3>
+  </div>
 </div>
-ユーザー名：<%= current_user.user_name %>

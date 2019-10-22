@@ -35,6 +35,7 @@
     <div class="collapse navbar-collapse" id="navbarForm">
     <form class="form-inline my-2 my-lg-0 ml-auto">
       <div class="header_linkbox">
+        <% if @boards %>
         <%= form_with url: boards_path, method: :get, class: "boards__searchForm" do %>
           <%= select_tag :category_id,
                          options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
@@ -44,6 +45,7 @@
                            onchange: "submit(this.form);"
                          }
           %>
+        <% end %>
         <% end %>
       </div>
       <div class="header_linkbox">

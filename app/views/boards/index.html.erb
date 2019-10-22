@@ -9,7 +9,9 @@
       <th>作成日時</th>
       <th>カテゴリー</th>
       <th></th>
-      <th></th>
+      <% if current_user %>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -24,7 +26,9 @@
         <td><%=board.created_at.to_s(:datetime_jp)%></td>
         <td><%=board.category.name %></td>
         <td><%=link_to "詳細", board, class: "btn btn-outline-success" %></td>
-        <td><%=link_to "編集", edit_board_path(board), class: "btn btn-outline-success" %></td>
+        <% if current_user %>
+          <td><%=link_to "編集", edit_board_path(board), class: "btn btn-outline-success" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

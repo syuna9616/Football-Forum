@@ -26,8 +26,9 @@
 
 class User < ApplicationRecord
   mount_uploader :image, ImageUploader
-  
+
   has_many :boards, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
 
   validates :user_name, presence: true, length: { maximum: 10 }
   # Include default devise modules. Others available are:

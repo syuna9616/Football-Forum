@@ -1,7 +1,7 @@
 <div class="card">
 
   <div class="card-header">
-    <% if current_user %>
+    <% if current_user && current_user.id == @board.user_id %>
       <%=link_to "削除", board_path, class: "btn btn-outline-danger", method: :delete, data: {confirm: "本当に掲示板を削除しますか？"} %>
       <%=link_to "編集", edit_board_path, class: "btn btn-outline-success" %>
     <% end %>

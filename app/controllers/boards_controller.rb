@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   before_action :find_board_from_id, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :mypage]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :permit_user!, only: [:edit, :update, :destroy]
 
   def index
     if params[:category_id]
@@ -43,8 +44,6 @@ class BoardsController < ApplicationController
     redirect_to boards_path, flash: {notice: "掲示板「#{@board.title}」を削除しました"}
   end
 
-  def mypage
-  end
 
   private
   def board_params
@@ -54,4 +53,13 @@ class BoardsController < ApplicationController
   def find_board_from_id
     @board = Board.find(params[:id])
   end
+
+  def permit_user!
+    if @board.user_id == current_user.id
+      return
+    else
+      redirect_back fallback_location: boards_path, flash: {notice: "自分の投稿のみ編集できます"}
+    end
+  end
+
 end

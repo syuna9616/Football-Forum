@@ -33,8 +33,15 @@
   font-size: 15px;
   text-align: right;
 
-  > span {
+  span {
     font-size: 14px;
-    margin: 0 12px;
+    margin: 0 10px;
   }
+  img{
+    width: 40px;
+  	height: 40px;
+  	object-fit: cover;
+  	border-radius: 50%;
+  }
+
 }

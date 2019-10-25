@@ -27,7 +27,11 @@
         <td><%=board.category.name %></td>
         <td><%=link_to "詳細", board, class: "btn btn-outline-success" %></td>
         <% if current_user %>
-          <td><%=link_to "編集", edit_board_path(board), class: "btn btn-outline-success" %></td>
+          <td>
+            <% if current_user && board.user_id == current_user.id %>
+                <%=link_to "編集", edit_board_path(board), class: "btn btn-outline-success" %>
+            <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>

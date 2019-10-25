@@ -21,7 +21,7 @@
         <td><%=board.title%></td>
         <td><%=board.name%></td>
         <td><div class="user-image-index">
-          <%= image_tag("#{User.find(board.user_id).image}")%>
+          <%= link_to image_tag("#{User.find(board.user_id).image}"), "/users/profile/#{board.user_id}"%>
         </div></td>
         <td><%=board.created_at.to_s(:datetime_jp)%></td>
         <td><%=board.category.name %></td>

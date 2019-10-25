@@ -19,7 +19,7 @@
             <%= link_to "ログイン", new_user_session_path, method: :get, class: "dropdown-item" %>
             <%= link_to "新規登録", new_user_registration_path, method: :get, class: "dropdown-item"%>
           <% elsif user_signed_in? %>
-            <%= link_to "マイページ", mypage_path, class: "dropdown-item" %>
+            <%= link_to "マイページ", "/users/profile/#{current_user.id}", class: "dropdown-item" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <%= link_to "ユーザーを編集", edit_user_registration_path, method: :get, class: "dropdown-item" %>
           <% end %>
@@ -28,10 +28,10 @@
     </ul>
     <% if current_user %>
       <div class="user-name-header">
-        ログイン中：<%= link_to current_user.user_name, mypage_path %>
+        ログイン中：<%= link_to current_user.user_name, "/users/profile/#{current_user.id}" %>
       </div>
       <div class="user-image-header">
-        <%= link_to image_tag("#{current_user.image}"), mypage_path%>
+        <%= link_to image_tag("#{current_user.image}"), "/users/profile/#{current_user.id}"%>
       </div>
     <% end %>
     <div class="collapse navbar-collapse" id="navbarForm">

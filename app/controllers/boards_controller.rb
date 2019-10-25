@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :find_board_from_id, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :mypage]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :permit_user!, only: [:edit, :update, :destroy]
 
   def index
@@ -44,8 +44,6 @@ class BoardsController < ApplicationController
     redirect_to boards_path, flash: {notice: "掲示板「#{@board.title}」を削除しました"}
   end
 
-  def mypage
-  end
 
   private
   def board_params

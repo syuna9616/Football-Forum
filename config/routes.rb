@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy]
   root 'boards#index'
 
-  get "mypage", to: "boards#mypage"
+  get "users/profile/:id", to: "users#profile"
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

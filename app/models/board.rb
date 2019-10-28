@@ -21,9 +21,9 @@
 #
 
 class Board < ApplicationRecord
-  has_many :comments, dependent: :delete_all
+  has_many :comments, dependent: :destroy
   belongs_to :category
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   validates :name, presence: true, length: { maximum: 8 }
   validates :title, presence: true, length: { maximum: 20 }

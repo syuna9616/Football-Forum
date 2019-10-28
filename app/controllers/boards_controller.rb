@@ -4,11 +4,8 @@ class BoardsController < ApplicationController
   before_action :permit_user!, only: [:edit, :update, :destroy]
 
   def index
-    if params[:category_id]
-      @boards = Board.where(category_id: params[:category_id]).page(params[:page])
-    else
-      @boards = Board.page(params[:page])
-    end
+    @boards = params[:category_id].present? ? Category.find(params[:category_id]).boards : Board.all
+    @boards = @boards.page(params[:page])
   end
 
   def new

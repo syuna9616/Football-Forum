@@ -17,6 +17,6 @@ if Rails.env == "development"
   ])
 
   (1..50).each do |n|
-    Board.create(name: "ユーザー#{n}", title: "タイトル#{n}", body: "本文#{n}", category_id: rand(1..6))
+    Board.create(user_id: 1, title: "タイトル#{n}", body: "本文#{n}", category_id: rand(1..6))
   end
 end

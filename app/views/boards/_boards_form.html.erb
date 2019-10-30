@@ -22,7 +22,7 @@
             <%= link_to image_tag("#{User.find(board.user_id).image}"), "/users/profile/#{board.user_id}"%>
           </div>
           <div class="board-name-index">
-            <%=board.name%>
+            <%=board.user.user_name%>
           </div>
         </td>
         <td><%=board.created_at.to_s(:datetime_jp)%></td>

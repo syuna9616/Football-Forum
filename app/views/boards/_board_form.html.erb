@@ -17,7 +17,7 @@
   </div>
 
   <div class="card-footer text-muted">
-    <p>作成者：<%= @board.name %></p>
+    <p>作成者：<%= @board.user.user_name %></p>
     <div class="user-image-show">
       <%= link_to image_tag("#{User.find(@board.user_id).image}"), "/users/profile/#{@board.user_id}"%>
     </div>

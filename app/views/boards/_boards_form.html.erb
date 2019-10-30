@@ -4,7 +4,6 @@
       <th>ID</th>
       <th>タイトル</th>
       <th>作成者</th>
-      <th></th>
       <th>作成日時</th>
       <th>カテゴリー</th>
       <th></th>
@@ -18,12 +17,23 @@
       <tr>
         <td><%=board.id%></td>
         <td><%=board.title%></td>
-        <td><%=board.name%></td>
-        <td><div class="user-image-index">
-          <%= link_to image_tag("#{User.find(board.user_id).image}"), "/users/profile/#{board.user_id}"%>
-        </div></td>
+        <td>
+          <div class="user-image-index">
+            <%= link_to image_tag("#{User.find(board.user_id).image}"), "/users/profile/#{board.user_id}"%>
+          </div>
+          <div class="board-name-index">
+            <%=board.name%>
+          </div>
+        </td>
         <td><%=board.created_at.to_s(:datetime_jp)%></td>
-        <td><%=board.category.name %></td>
+        <td>
+          <div class="category-image">
+            <%= image_tag ("#{board.category.id}") %>
+          </div>
+          <div class="category-name">
+            <%=board.category.name %>
+          </div>
+        </td>
         <td><%=link_to "詳細", board, class: "btn btn-outline-success" %></td>
         <% if current_user %>
           <td>

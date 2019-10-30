@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_103636) do
+ActiveRecord::Schema.define(version: 2019_10_30_141938) do
 
   create_table "boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_boards_on_category_id"
+    t.index ["user_id"], name: "fk_rails_0732f8ef3d"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 2019_10_25_103636) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "board_id"
-    t.string "name", null: false
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.index ["board_id"], name: "index_comments_on_board_id"
+    t.index ["user_id"], name: "fk_rails_03de2dc08c"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_10_25_103636) do
   end
 
   add_foreign_key "boards", "categories"
+  add_foreign_key "boards", "users"
   add_foreign_key "categories", "boards"
   add_foreign_key "comments", "boards"
+  add_foreign_key "comments", "users"
 end
